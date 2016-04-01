@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BootstrapRails</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<style type="text/css">
+		body {  
+			padding-top: 70px;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">   
+		<div class="container">   
+			<div class="navbar-header">   
+				<a class="navbar-brand" href="#">Rails Bootstrap</a>   
+			</div>   
+			<ul class="nav navbar-nav">    
+				<li><%= link_to "Products", products_path %></li>  
+			</ul>   
+			<ul class="nav navbar-nav navbar-right">   
+			</ul>   
+		</div>   
+	</div>   
+	<div class="container">   
+		<% flash.each do |type, message| %>   
+		<div class="alert <%= flash_class type %> alert-dismissable">   
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>   
+			<p><%= message %></p>   
+		</div>   
+		<% end %>   
+		<%= yield %>   
+	</div> 
+</body>
+</html>
